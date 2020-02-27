@@ -21,6 +21,8 @@ intellij {
     version '2019.3.3'
 }
 patchPluginXml {
+    pluginDescription """
+      Please do not use this plugin."""
     changeNotes """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
