@@ -10,10 +10,21 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <applicationService
+            serviceInterface="dev.alexengrig.intellij.plugins.hodgepodge.application.service.LimitNumberOfOpenProjectsService"
+            serviceImplementation="dev.alexengrig.intellij.plugins.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
+        />
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
     </actions>
+
+    <project-components>
+        <component>
+            <implementation-class>
+                dev.alexengrig.intellij.plugins.hodgepodge.project.component.ProjectCounterComponent
+            </implementation-class>
+        </component>
+    </project-components>
 </idea-plugin>
