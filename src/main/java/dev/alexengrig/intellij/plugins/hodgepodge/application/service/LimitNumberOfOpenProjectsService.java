@@ -9,7 +9,7 @@ public interface LimitNumberOfOpenProjectsService {
 
     int limit();
 
-    boolean allowOpenNewProject();
+    boolean openedNewProject();
 
-    void projectWillClosed();
+    void closedProject();
 }

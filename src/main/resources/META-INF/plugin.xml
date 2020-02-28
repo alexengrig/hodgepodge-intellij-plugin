@@ -5,6 +5,8 @@
         Alexengrig Dev.
     </vendor>
 
+    <idea-version since-build="193"/>
+
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
@@ -16,15 +18,9 @@
         />
     </extensions>
 
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
-
-    <project-components>
-        <component>
-            <implementation-class>
-                dev.alexengrig.intellij.plugins.hodgepodge.project.component.ProjectCounterComponent
-            </implementation-class>
-        </component>
-    </project-components>
+    <applicationListeners>
+        <listener
+            class="dev.alexengrig.intellij.plugins.hodgepodge.project.listener.ProjectCounterListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
 </idea-plugin>

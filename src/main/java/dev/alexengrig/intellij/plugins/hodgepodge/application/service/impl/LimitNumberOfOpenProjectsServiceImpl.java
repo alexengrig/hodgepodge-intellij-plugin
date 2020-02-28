@@ -4,7 +4,7 @@ import dev.alexengrig.intellij.plugins.hodgepodge.application.service.LimitNumbe
 
 public class LimitNumberOfOpenProjectsServiceImpl implements LimitNumberOfOpenProjectsService {
     private int count = 0;
-    private int limit = 2;
+    private final int limit = 2;
 
     @Override
     public int limit() {
@@ -12,7 +12,7 @@ public class LimitNumberOfOpenProjectsServiceImpl implements LimitNumberOfOpenPr
     }
 
     @Override
-    public boolean allowOpenNewProject() {
+    public boolean openedNewProject() {
         if (count + 1 <= limit) {
             ++count;
             return true;
@@ -22,7 +22,7 @@ public class LimitNumberOfOpenProjectsServiceImpl implements LimitNumberOfOpenPr
     }
 
     @Override
-    public void projectWillClosed() {
+    public void closedProject() {
         if (--count < 0) {
             count = 0;
         }
