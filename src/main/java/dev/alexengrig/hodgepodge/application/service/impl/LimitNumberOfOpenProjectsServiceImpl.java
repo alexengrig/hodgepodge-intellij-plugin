@@ -1,6 +1,6 @@
-package dev.alexengrig.intellij.plugins.hodgepodge.application.service.impl;
+package dev.alexengrig.hodgepodge.application.service.impl;
 
-import dev.alexengrig.intellij.plugins.hodgepodge.application.service.LimitNumberOfOpenProjectsService;
+import dev.alexengrig.hodgepodge.application.service.LimitNumberOfOpenProjectsService;
 
 public class LimitNumberOfOpenProjectsServiceImpl implements LimitNumberOfOpenProjectsService {
     private int count = 0;

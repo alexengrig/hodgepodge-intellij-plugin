@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.intellij' version '0.4.16'
 }
 
-group 'dev.alexengrig.intellij.plugins'
+group 'dev.alexengrig'
 version '0.1-SNAPSHOT'
 
 sourceCompatibility = 1.8

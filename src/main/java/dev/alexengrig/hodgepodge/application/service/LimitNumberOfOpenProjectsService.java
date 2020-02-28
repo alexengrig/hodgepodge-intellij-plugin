@@ -1,4 +1,4 @@
-package dev.alexengrig.intellij.plugins.hodgepodge.application.service;
+package dev.alexengrig.hodgepodge.application.service;
 
 import com.intellij.openapi.components.ServiceManager;
 

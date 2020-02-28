@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>dev.alexengrig.intellij.plugins.hodgepodge-intellij-plugin</id>
+    <id>dev.alexengrig.hodgepodge-intellij-plugin</id>
     <name>Hodgepodge</name>
     <vendor email="alexengrig@gmail.com" url="https://github.com/alexengrig/hodgepodge-intellij-plugin">
         Alexengrig Dev.
@@ -13,14 +13,14 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-            serviceInterface="dev.alexengrig.intellij.plugins.hodgepodge.application.service.LimitNumberOfOpenProjectsService"
-            serviceImplementation="dev.alexengrig.intellij.plugins.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
+            serviceInterface="dev.alexengrig.hodgepodge.application.service.LimitNumberOfOpenProjectsService"
+            serviceImplementation="dev.alexengrig.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
         />
     </extensions>
 
     <applicationListeners>
         <listener
-            class="dev.alexengrig.intellij.plugins.hodgepodge.project.listener.ProjectCounterListener"
+            class="dev.alexengrig.hodgepodge.project.listener.ProjectCounterListener"
             topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

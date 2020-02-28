@@ -1,10 +1,10 @@
-package dev.alexengrig.intellij.plugins.hodgepodge.project.listener;
+package dev.alexengrig.hodgepodge.project.listener;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerListener;
 import com.intellij.openapi.ui.Messages;
-import dev.alexengrig.intellij.plugins.hodgepodge.application.service.LimitNumberOfOpenProjectsService;
+import dev.alexengrig.hodgepodge.application.service.LimitNumberOfOpenProjectsService;
 import org.jetbrains.annotations.NotNull;
 
 public class ProjectCounterListener implements ProjectManagerListener {
