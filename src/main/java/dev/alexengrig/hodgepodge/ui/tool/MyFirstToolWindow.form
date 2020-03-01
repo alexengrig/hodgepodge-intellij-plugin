@@ -63,6 +63,14 @@
           <text value="Date"/>
         </properties>
       </component>
+      <component id="cd581" class="javax.swing.JButton" binding="showDialogButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Show dialog"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
