@@ -16,6 +16,12 @@
             serviceInterface="dev.alexengrig.hodgepodge.application.service.LimitNumberOfOpenProjectsService"
             serviceImplementation="dev.alexengrig.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
         />
+        <toolWindow
+            id="My First ToolWindow"
+            secondary="true"
+            anchor="right"
+            factoryClass="dev.alexengrig.hodgepodge.ui.tool.MyFirstToolWindowFactory"
+        />
     </extensions>
 
     <applicationListeners>
