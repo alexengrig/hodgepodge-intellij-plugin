@@ -1,11 +1,10 @@
 package dev.alexengrig.hodgepodge.ui.tool;
 
+import com.intellij.openapi.ui.DialogBuilder;
 import com.intellij.openapi.wm.ToolWindow;
 import dev.alexengrig.hodgepodge.ui.dialog.MyFirstDialog;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class MyFirstToolWindow {
@@ -16,6 +15,7 @@ public class MyFirstToolWindow {
     private JLabel timeZone;
     private JPanel myToolWindowContent;
     private JButton showDialogButton;
+    private JButton dialogNotifyButton;
 
     public MyFirstToolWindow(ToolWindow toolWindow) {
         this.hideToolWindowButton.addActionListener(e -> toolWindow.hide(null));
@@ -40,6 +40,13 @@ public class MyFirstToolWindow {
         timeZone.setText(str_gmt_Offset);
         showDialogButton.addActionListener(event -> {
             if (new MyFirstDialog("Refresh?").showAndGet()) {
+                currentDateTime();
+            }
+        });
+        dialogNotifyButton.addActionListener(event -> {
+            final DialogBuilder dialogBuilder = new DialogBuilder();
+            dialogBuilder.setTitle("Refresh?");
+            if (dialogBuilder.showAndGet()) {
                 currentDateTime();
             }
         });
