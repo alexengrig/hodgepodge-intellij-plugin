@@ -1,13 +1,22 @@
 package dev.alexengrig.hodgepodge.ui.tool;
 
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationGroup;
+import com.intellij.notification.NotificationType;
 import com.intellij.openapi.ui.DialogBuilder;
+import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.wm.ToolWindow;
+import dev.alexengrig.hodgepodge.notification.MyInformationNotifier;
 import dev.alexengrig.hodgepodge.ui.dialog.MyFirstDialog;
 
 import javax.swing.*;
 import java.util.Calendar;
 
+import static com.intellij.notification.NotificationType.INFORMATION;
+
 public class MyFirstToolWindow {
+    private MyInformationNotifier myInformationNotifier;
+
     private JButton refreshToolWindowButton;
     private JButton hideToolWindowButton;
     private JLabel currentDate;
@@ -16,8 +25,10 @@ public class MyFirstToolWindow {
     private JPanel myToolWindowContent;
     private JButton showDialogButton;
     private JButton dialogNotifyButton;
+    private JButton notifyButton;
 
     public MyFirstToolWindow(ToolWindow toolWindow) {
+        this.myInformationNotifier = new MyInformationNotifier("My notification group");
         this.hideToolWindowButton.addActionListener(e -> toolWindow.hide(null));
         this.refreshToolWindowButton.addActionListener(e -> this.currentDateTime());
         this.currentDateTime();
@@ -49,6 +60,9 @@ public class MyFirstToolWindow {
             if (dialogBuilder.showAndGet()) {
                 currentDateTime();
             }
+        });
+        notifyButton.addActionListener(event -> {
+            myInformationNotifier.notify("Notification");
         });
     }
 
