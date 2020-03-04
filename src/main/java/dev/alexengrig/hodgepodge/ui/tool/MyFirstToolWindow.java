@@ -1,18 +1,16 @@
 package dev.alexengrig.hodgepodge.ui.tool;
 
-import com.intellij.notification.Notification;
-import com.intellij.notification.NotificationGroup;
-import com.intellij.notification.NotificationType;
+import com.intellij.openapi.fileChooser.FileChooser;
+import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.ui.DialogBuilder;
-import com.intellij.openapi.ui.MessageType;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.util.Consumer;
 import dev.alexengrig.hodgepodge.notification.MyInformationNotifier;
 import dev.alexengrig.hodgepodge.ui.dialog.MyFirstDialog;
 
 import javax.swing.*;
 import java.util.Calendar;
-
-import static com.intellij.notification.NotificationType.INFORMATION;
 
 public class MyFirstToolWindow {
     private MyInformationNotifier myInformationNotifier;
@@ -26,6 +24,7 @@ public class MyFirstToolWindow {
     private JButton showDialogButton;
     private JButton dialogNotifyButton;
     private JButton notifyButton;
+    private JButton chooseFileButton;
 
     public MyFirstToolWindow(ToolWindow toolWindow) {
         this.myInformationNotifier = new MyInformationNotifier("My notification group");
@@ -61,8 +60,12 @@ public class MyFirstToolWindow {
                 currentDateTime();
             }
         });
-        notifyButton.addActionListener(event -> {
-            myInformationNotifier.notify("Notification");
+        notifyButton.addActionListener(event -> myInformationNotifier.notify("Notification"));
+        chooseFileButton.addActionListener(event -> {
+            final FileChooserDescriptor descriptor = new FileChooserDescriptor(true, true,
+                    true, true, true, true);
+            final Consumer<VirtualFile> consumer = file -> System.out.println("Choose file: " + file.getName());
+            FileChooser.chooseFile(descriptor, null, null, consumer);
         });
     }
 
