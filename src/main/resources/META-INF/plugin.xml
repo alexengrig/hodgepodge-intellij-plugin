@@ -13,6 +13,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
+            serviceImplementation="dev.alexengrig.hodgepodge.resttime.application.service.impl.MyRestTimeServiceImpl"
+            serviceInterface="dev.alexengrig.hodgepodge.resttime.application.service.MyRestTimeService"
+        />
+        <applicationService
             serviceInterface="dev.alexengrig.hodgepodge.application.service.LimitNumberOfOpenProjectsService"
             serviceImplementation="dev.alexengrig.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
         />
