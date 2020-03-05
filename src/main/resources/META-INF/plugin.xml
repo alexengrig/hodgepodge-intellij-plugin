@@ -17,6 +17,12 @@
             serviceImplementation="dev.alexengrig.hodgepodge.application.service.impl.LimitNumberOfOpenProjectsServiceImpl"
         />
         <toolWindow
+            id="My Rest Time ToolWindow"
+            secondary="true"
+            anchor="right"
+            factoryClass="dev.alexengrig.hodgepodge.resttime.ui.tool.MyRestTimeToolWindowFactory"
+        />
+        <toolWindow
             id="My First ToolWindow"
             secondary="true"
             anchor="right"
