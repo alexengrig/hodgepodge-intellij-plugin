@@ -7,9 +7,29 @@ public interface MyRestTimeService {
         return ServiceManager.getService(MyRestTimeService.class);
     }
 
-    void updateTimes(int workTime, int restTime);
-
     int getWorkTime();
 
     int getRestTime();
+
+    void updateTimes(int workTime, int restTime);
+
+    default int getTimeStepSize() {
+        return 5;
+    }
+
+    default int getMinWorkTime() {
+        return 20;
+    }
+
+    default int getMaxWorkTime() {
+        return 200;
+    }
+
+    default int getMinRestTime() {
+        return 5;
+    }
+
+    default int getMaxRestTime() {
+        return 50;
+    }
 }
