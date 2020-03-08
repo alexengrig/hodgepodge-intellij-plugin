@@ -3,8 +3,9 @@ package dev.alexengrig.hodgepodge.resttime.application.service.impl;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
+import com.intellij.util.xmlb.annotations.OptionTag;
 import dev.alexengrig.hodgepodge.resttime.application.service.MyRestTimeService;
-import dev.alexengrig.hodgepodge.resttime.util.DateTimeUtil;
+import dev.alexengrig.hodgepodge.resttime.util.LocalDateTimeConverter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,7 +46,9 @@ public class MyRestTimeServiceImpl implements MyRestTimeService, PersistentState
         public int workTime = 45;
         public int restTime = 5;
         public boolean isRest = false;
-        public long start = DateTimeUtil.toLong(LocalDateTime.now());
-        public long end = DateTimeUtil.toLong(LocalDateTime.now().plusMinutes(workTime));
+        @OptionTag(converter = LocalDateTimeConverter.class)
+        public LocalDateTime start = LocalDateTime.now();
+        @OptionTag(converter = LocalDateTimeConverter.class)
+        public LocalDateTime end = LocalDateTime.now().plusMinutes(workTime);
     }
 }
