@@ -4,13 +4,13 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import dev.alexengrig.hodgepodge.resttime.application.service.MyRestTimeService;
+import dev.alexengrig.hodgepodge.resttime.util.DateTimeUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-@State(name = "MyRestTimeServiceImpl", storages = @Storage("restTime.xml"))
+@State(name = "MyRestTimeServiceImpl", storages = {@Storage("restTime.xml")})
 public class MyRestTimeServiceImpl implements MyRestTimeService, PersistentStateComponent<MyRestTimeServiceImpl.State> {
     private State myState = new State();
 
@@ -39,14 +39,13 @@ public class MyRestTimeServiceImpl implements MyRestTimeService, PersistentState
     @Override
     public void loadState(@NotNull State state) {
         myState = state;
-        System.out.println("HERE");
     }
 
-    static class State implements Serializable {
-        public int workTime = 45; //TODO: set 45
-        public int restTime = 5; //TODO: set 5
+    static class State {
+        public int workTime = 45;
+        public int restTime = 5;
         public boolean isRest = false;
-        public long start = new Date().getTime();
-        public long end = 0;
+        public long start = DateTimeUtil.toLong(LocalDateTime.now());
+        public long end = DateTimeUtil.toLong(LocalDateTime.now().plusMinutes(workTime));
     }
 }
